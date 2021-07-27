@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscatuhogar</title>
+    <!-- IMPORTACION DE BOOTSTRAP 5 Y FUENTES CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v4.4.1/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <!-- IMAGEN BANNER INICIO -->
+    <style>
+        .banner-image {
+            
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("img/inicio1.jpg");
+            background-size: cover;
+            
+        }
+    </style>
+
+</head>
+
+<body style="background-color: #f3eee4;">
+    <!-- NAVBAR PRESENTACION PAGINA WEB  -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
+        <div class="container titulo">
+            <div class="navbar-brand" style="text-align: center;">
+                <!-- IMAGEN NAVBAR Y TEXTO BUSCATUHOGAR -->
+                <img src="img/12.png" alt="" width="40" height="35" class="d-inline-block align-text-top">
+                <div class="nav-link text-white" style="color: rgb(255, 255, 255);">
+                    <p>Buscatuhogar</p>
+                </div>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="mx-auto"></div>
+                <ul class="navbar-nav">
+                    <!-- DISTINTAS OPCIONES DE NAVEGACION EN NAVBAR -->
+
+                    <!-- OPCION DE HOME -->
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Home</a>
+                    </li>
+                    <!-- OPCION DE REGISTRO AL PRESIONAR REDIRIGE A UNA VENTANA MODAL -->
+                    <li class="nav-item">
+                        <a type="button" class="nav-link text-white" data-toggle="modal"
+                            data-target="#registro">Registro</a>
+                    </li>
+                    <!-- OPCION DE AYUDA O CONTACTO REDIRIGE A UNA VENTANA AYUDAINICIO.HTML -->
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="vistas/ayudaInicio.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MODAL VENTANA REFERENTE AL PRESIONAR BOTON DE REGISTRO -->
+    <div class="modal fade" id="registro" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered titulo " role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!-- TITULO DE VENTANA MODAL-->
+                    <div style="text-align: center;">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Nuevo Registro</h5>
+                    </div>
+                    <div style="text-align: end;">
+                        <i type="button" class="fas fa-times" data-dismiss="modal"></i>
+
+                    </div>
+                </div>
+                <br>
+                <!-- FORMULARIO DE INGRESO PARA REGISTRAR A UN USUARIO -->
+                <form class="contenido" action="login/registrarse.php" method="POST">
+                    <!-- INGRESO DE CORREO ELECTRONICO -->
+                    <div class="mb-3">
+                        <label for="exampleDropdownFormEmail2" class="form-label">Ingrese una direccion de correo electrónico:</label>
+                        <input type="email" name="email" class="form-control" id="exampleDropdownFormEmail2"
+                            placeholder="email@example.com" required>
+                    </div>
+                    <!-- INGRESO DE CONTRASEÑA -->
+                    <div class="mb-3">
+                        <label for="exampleDropdownFormPassword2" class="form-label">Ingrese una contraseña:</label>
+                        <input type="password" name="password" id="myInput" class="form-control" id="exampleDropdownFormPassword2"
+                            placeholder="Password" required>
+                            <input type="checkbox" onclick="myFunction()">Mostrar Constraseña
+                    </div>
+                    <!-- BOTONES CON DISTINTAS OPCIONES -->
+                    <div class="modal-footer">
+                        <!-- BOTON PARA REGISTRAR AL USUARIO -->
+                        <button type="submit" class="btn btn-secondary" style="background-color: rgb(169, 177, 240);">Registrarse</button>
+                        <!-- BOTON CERRAR VENTANA MODAL -->
+                        <button type="close" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+        <script>
+        function myFunction() {
+            var x = document.getElementById("myInput");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+        </script>
+
+    <!--MODAL VENTANA REFERENTE AL PRESIONAR BOTON DE INICIO SESIÓN-->
+    <div class="modal fade" id="inicio" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered titulo" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!-- TITULO DE VENTANA MODAL-->
+                    <div class="spinner-grow text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <h5 class="modal-title" id="exampleModalLongTitle">Iniciar Sesión</h5>
+                    <div style="text-align: end;">
+                        <i type="button" class="fas fa-times" data-dismiss="modal"></i>
+                    </div>
+                </div>
+                <br>
+                <div class="contenido">                  
+                    <!-- FORMULARIO DE INGRESO PARA INICIAR SESIÓN -->
+                    <form action="login/index.php" method="POST">
+                        <!-- INGRESO DE CORREO ELECTRONICO -->
+                        <div class="mb-3">
+                            <label for="exampleDropdownFormEmail2" class="form-label">Dirección de correo
+                                electrónico:</label>
+                            <input type="email" name="email" class="form-control" id="exampleDropdownFormEmail2"
+                                placeholder="email@example.com" required>
+                        </div>
+                        <!-- INGRESO DE CONTRASEÑA -->
+                        <div class="mb-3">
+                            <label for="exampleDropdownFormPassword2" class="form-label">Contraseña:</label>
+                            <input type="password" name="password" class="form-control"
+                                id="exampleDropdownFormPassword2" placeholder="Password" required>
+                        </div>
+
+                        <!-- BOTON CON OPCION DE INICIAR SESIÓN -->
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-secondary" style="background-color: rgb(169, 177, 240);" >Iniciar Sesión</button>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BANNER IMAGEN, CON TEXTO CORRESPONDIENTE  -->
+    <div class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
+        <div class="content text-center ">
+            
+            <!-- VISUALIZACION DE TEXTO AL INICIAR LA PAGINA WEB BUSCATUHOGAR -->
+            <div  style="color: rgb(226, 225, 225); font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-weight: 600; ">
+                <h1>Bienvenido a nuestro sitio Web Oficial
+                    
+                    
+                </h1>
+                
+                <h2><p>¡Buscatuhogar!</p></h2>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- CONTENIDO EXTRA AL DESLIZAR HACIA ABAJO -->
+    <div class="container my-5 d-grid gap-5">
+        <div class="p-5 " style="background-color: #a6b8a6; border-radius: 1rem;">
+            <!-- VISUALIZACION DE MENSAJE Y VIDEO CORRESPONDIENTE -->
+            <div class="titulo" style="text-align: center;">
+                <!-- MENSAJE -->
+                <h5>¡Aprende a usar nuestra página Web! </h5>
+                <br>
+                <!-- IMPORTACION DE VIDEO BUSCATUHOGAR CORRESPONDIENTE DESDE YOUTUBE.COM-->
+                <iframe width="500" height="250" src="https://www.youtube.com/embed/YoVUP8ExjWg?autoplay=1"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+                <br>
+                <br>
+                <hr>
+                <br>
+                <!-- MENSAJE -->
+                <p>
+                    ¡Inicia Sesión con nosotros!
+                </p>
+            </div>
+
+            <!-- BOTON PARA ABRIR VENTANA MODAL INICIAR SESIÓN -->
+            <div class="titulo" style="text-align: center;">
+                <!--FUNCION BOTON MODAL INICIO SESION-->
+                <button type="button" class="btn btn-secondary" style="background-color: rgb(169, 177, 240);" data-toggle="modal" data-target="#inicio">
+                    Iniciar Sesión
+                </button>
+            </div>
+        </div>
+
+        <!--IMPORTACION DE ICONOS DE ADVERTENCIA CORRESPONDIENTES A BOOTSTRAP-->
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+            <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+            </symbol>
+            <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                    d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+            </symbol>
+            <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                    d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+            </symbol>
+        </svg>
+        <!-- MENSAJE DE ADVERTENCIA COVID-19 -->
+        <div class="contenido titulo">
+            <!--MENSAJE -->
+            <div class="alert alert-warning" role="alert" style="border-radius: 30px; padding: 30px;">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:">
+                    <use xlink:href="#exclamation-triangle-fill" />
+                </svg>
+                Recomendaciones para prevenir el COVID-19, Porque nosotros te cuidamos...
+
+            </div>
+        </div>
+        <!-- ADVERTENCIAS Y CUIDADOS COVID-19-->
+        <div class="p-5 " style="background-color: #a6b8a6; border-radius: 1rem;">
+            <div style=" width: auto; height: auto;   position: relative;">
+                <!-- COLUMNAS PARA VISUALIZAR CONTENIDO DE ADVERTENCIA -->
+                <div class="row titulo" style="text-align: center;">
+
+                    <!--ADVERTENCIA 1-->
+                    <div class="col-lg-4">
+                    <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="img/mascarilla.jpg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <!--TEXTO ADEVERTENCIA Y CUIDADO 1-->
+                    <h4>Uso de la mascarilla</h4>
+                    <hr>
+                    <p>El buen uso de la mascarilla es fundamental para preservar nuestra salud
+                        y la de las personas que nos rodean.</p>
+                    
+                    </div>
+
+                    <!--ADVERTENCIA 2-->
+                    <div class="col-lg-4">
+                    <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="img/manos.jpg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <!--TEXTO ADEVERTENCIA Y CUIDADO 2-->
+                    <h4>Lavado de manos</h4>
+                    <hr>
+                    <p>Lavarse las manos previene enfermedades y la propagación de infecciones a otras
+                        personas.</p>
+                    
+                    </div>
+                    
+                    <!--ADVERTENCIA 3-->
+                    <div class="col-lg-4">
+                    <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="img/dis.jpg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <!--TEXTO ADEVERTENCIA Y CUIDADO 3-->
+                    <h4>Distanciamiento Social</h4>
+                    <hr>
+                    <p>El distanciamiento social significa mantener distancia o espacio entre las
+                        personas para ayudar a prevenir la propagación de la enfermedad.</p>
+                   
+                    </div>
+                </div>
+  
+
+            </div>
+        </div>
+
+    </div>
+    
+    <!-- IMPORTACIONES DE SCRIPTS JS-->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript">
+        var nav = document.querySelector('nav');
+
+        window.addEventListener('scroll', function () {
+            if (window.pageYOffset > 100) {
+                nav.classList.add('bg-dark', 'shadow');
+            } else {
+                nav.classList.remove('bg-dark', 'shadow');
+            }
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
